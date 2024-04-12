@@ -1,0 +1,77 @@
+body, h1, h2, h3, ul, li, p, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    grid-column: 1 / -1;
+    background-color: #5c5edc;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.sidebar ul {
+    margin-top: 20px;
+}
+
+.sidebar ul li a {
+    color: #333;
+    padding: 10px 0;
+    display: block;
+}
+
+.content {
+    padding: 20px;
+    background-color: #e9ecef;
+    overflow-y: auto;
+}
+
+.summary, .transactions {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary h2, .transactions h2 {
+    margin-bottom: 15px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar, .content {
+        padding: 10px;
+    }
+
+    header {
+        padding: 10px;
+    }
+}

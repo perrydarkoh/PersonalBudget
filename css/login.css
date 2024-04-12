@@ -1,0 +1,98 @@
+body, h1, p, a, input, button, label {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('../images/login.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.logo {
+    font-weight: bold;
+    color: #5c5edc;
+}
+
+.signup {
+    color: #5c5edc;
+    text-decoration: none;
+}
+
+.login-content h1 {
+    margin-bottom: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+label {
+    text-align: left;
+}
+
+input {
+    padding: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.forgot-password {
+    text-decoration: none;
+    color: #5c5edc;
+    font-size: 0.9em;
+}
+
+button {
+    padding: 1em;
+    border-radius: 5px;
+    background-color: #5c5edc;
+    color: white;
+    cursor: pointer;
+}
+
+.sso-button {
+    background: none;
+    color: #333;
+    text-decoration: underline;
+}
+
+.signup-prompt {
+    margin-top: 1em;
+}
+
+footer {
+    margin-top: 2em;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%;
+    }
+}

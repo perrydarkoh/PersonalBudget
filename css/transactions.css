@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #5c5edc;
+    padding: 0 10px;
+}
+
+.transactions-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactions-list th, .transactions-list td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.transactions-list th {
+    background-color: #f4f4f9;
+}

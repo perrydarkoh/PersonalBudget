@@ -1,0 +1,154 @@
+/* Reset some basic elements */
+body, h1, p, button, input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Simple responsive design */
+header, .hero, .footer {
+    text-align: center;
+    padding: 1em;
+}
+
+/* Basic header and navigation styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 1em;
+}
+
+.signup {
+    background-color: #5c5edc;
+    color: #fff;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+}
+
+/* Hero section */
+.hero {
+    padding: 4em 1em;
+    color: #fff;
+    background-image: linear-gradient(to right, rgba(156, 111, 255, 0.85), rgba(225, 79, 173, 0.85)), url('../images/background.webp');
+    background-size: cover;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    height: 100vh; /* Sets the height to fill the entire viewport vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* This will center the content vertically */
+    text-align: center;
+}
+
+.hero h1 {
+    margin-bottom: 0.5em;
+    font-size: 2.5em;
+}
+
+.hero p {
+    margin-bottom: 1em;
+}
+
+.hero input {
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 20px;
+    border: none;
+    width: 20%;
+    min-width: 250px;
+}
+
+.hero button {
+    background-color: #3426af;
+    color: #fff;
+    padding: 1em 1.5em;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.free-notice {
+    margin-top: 1em;
+    font-size: 0.8em;
+}
+
+/* Footer */
+.footer {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.footer p {
+    padding: 1em;
+    font-weight: bold;
+}
+
+/* Make sure the footer sticks to the bottom */
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Navigation menu hover effect */
+.menu a {
+    transition: color 0.3s ease;
+}
+
+.menu a:hover,
+.menu a:focus {
+    color: #5c5edc;
+}
+
+/* Signup button hover effect */
+.signup:hover {
+    background-color: #4c4abd;
+    transition: background-color 0.3s ease;
+}
+
+/* Form input and button enhancements */
+.email-form {
+    display: inline-block;
+    position: relative;
+}
+
+.hero input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(60, 60, 220, 0.5);
+}
+
+.hero button {
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.hero button:hover {
+    background-color: #221d8d;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .hero input {
+        width: 80%;
+    }
+
+    nav .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu a {
+        margin: 0.5em 0;
+    }
+}
