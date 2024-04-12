@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost'; // or your host name/IP
+$host = 'localhost'; 
 $dbName = 'personal_budget_db';
-$user = 'yourUsername'; // your MySQL username
-$password = 'yourPassword'; // your MySQL password
+$user = 'root'; 
+$password = ''; 
 
 // Create connection
 $conn = new mysqli($host, $user, $password, $dbName);

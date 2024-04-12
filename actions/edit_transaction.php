@@ -1,31 +1,40 @@
 <?php
-session_start();
-require_once 'connection.php';
 
-if (!isset($_SESSION['user_id']) || $_SERVER["REQUEST_METHOD"] != "POST") {
-    header('Location: transactions.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+require_once '../settings/connection.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../login/login.php');
     exit;
 }
 
-$transactionId = $_POST['transaction_id'];
-$userId = $_SESSION['user_id'];
-$date = $_POST['date'];
-$description = $_POST['description'];
-$category = $_POST['category'];
-$amount = $_POST['amount'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['transaction_id'], $_POST['transaction_date'], $_POST['category_id'], $_POST['amount'])) {
+    $userId = $_SESSION['user_id'];
+    $transactionId = $_POST['transaction_id'];
+    $transactionDate = $_POST['transaction_date'];
+    $categoryId = $_POST['category_id'];
+    $amount = $_POST['amount'];
 
-$query = "UPDATE transactions SET date = ?, description = ?, category = ?, amount = ? WHERE id = ? AND user_id = ?";
+    $stmt = $conn->prepare("UPDATE transactions SET transaction_date = ?, category_id = ?, amount = ? WHERE id = ? AND user_id = ?");
+    $stmt->bind_param("siidi", $transactionDate, $categoryId, $amount, $transactionId, $userId);
 
-if ($stmt = $conn->prepare($query)) {
-    $stmt->bind_param("sssdii", $date, $description, $category, $amount, $transactionId, $userId);
     if ($stmt->execute()) {
-        header('Location: transactions.php?success=Transaction updated successfully');
+        if ($stmt->affected_rows > 0) {
+            header('Location: ../actions/edit_transaction.php?status=success&message=Transaction updated successfully');
+        } else {
+            header('Location: ../actions/edit_transaction.php?status=error&message=No changes made or transaction does not exist');
+        }
     } else {
-        header('Location: transactions.php?error=Failed to update transaction');
+        header('Location: ../actions/edit_transaction.php?status=error&message=Error updating transaction');
     }
+
     $stmt->close();
 } else {
-    header('Location: transactions.php?error=Failed to prepare statement');
+    header('Location: ../actions/edit_transaction.php?status=error&message=Invalid request');
 }
+
 $conn->close();
 ?>

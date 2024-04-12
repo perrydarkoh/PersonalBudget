@@ -4,6 +4,9 @@ body {
     margin: 0;
     padding: 20px;
     color: #333;
+    background-image: url('../images/welcomepage.webp');
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
@@ -13,6 +16,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    position: relative; 
 }
 
 header h1 {
@@ -22,6 +26,10 @@ header h1 {
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0; 
+    position: absolute; 
+    top: 0;
+    right: 0;
 }
 
 nav ul li {
@@ -44,4 +52,12 @@ nav ul li a:hover {
 
 main p {
     line-height: 1.6;
+}
+
+
+.background-section {
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
 }

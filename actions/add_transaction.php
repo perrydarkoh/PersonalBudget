@@ -1,31 +1,38 @@
 <?php
-session_start();
-require_once 'connection.php';
 
-if (!isset($_SESSION['user_id']) || $_SERVER["REQUEST_METHOD"] != "POST") {
-    // Redirect to login or form page
-    header('Location: transactions.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+require_once '../settings/connection.php'; 
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../login/login.php');
     exit;
 }
 
-$userId = $_SESSION['user_id'];
-$date = $_POST['date'];
-$description = $_POST['description'];
-$category = $_POST['category'];
-$amount = $_POST['amount'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $userId = $_SESSION['user_id'];
+    $date = $_POST['transaction_date'];
+    $categoryId = $_POST['category_id'];
+    $amount = $_POST['amount'];
+    
+    $stmt = $conn->prepare("INSERT INTO transactions (user_id, category_id, transaction_date, amount) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("iisd", $userId, $categoryId, $date, $amount);
 
-$query = "INSERT INTO transactions (user_id, date, description, category, amount) VALUES (?, ?, ?, ?, ?)";
-
-if ($stmt = $conn->prepare($query)) {
-    $stmt->bind_param("isssd", $userId, $date, $description, $category, $amount);
     if ($stmt->execute()) {
-        header('Location: transactions.php?success=Transaction added successfully');
+        
+        $stmt->close();
+        $conn->close();
+        
+        
+        header('Location: ../view/transactions.php?status=success');
+        exit; 
     } else {
-        header('Location: transactions.php?error=Failed to add transaction');
+        echo "Error adding transaction.";
     }
+
     $stmt->close();
-} else {
-    header('Location: transactions.php?error=Failed to prepare statement');
+    $conn->close();
 }
-$conn->close();
 ?>

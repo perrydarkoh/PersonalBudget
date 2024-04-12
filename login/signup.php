@@ -16,7 +16,7 @@
         </header>
         <main class="signup-content">
             <h1>Let's go!</h1>
-            <form id="signupForm" action="action/register_action.php" method="POST"> 
+            <form id="signupForm" action="../actions/register_action.php" method="POST"> 
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
                     <input type="text" id="fullname" name="fullname" placeholder="Kojo Darkoh" required>
@@ -36,6 +36,6 @@
             </div>
         </main>
     </div>
-    <script src="../js/signup.js"></script> 
+    <!-- <script src="../js/signup.js"></script>  -->
 </body>
 </html>
